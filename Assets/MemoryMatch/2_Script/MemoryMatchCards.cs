@@ -48,6 +48,8 @@ public class MemoryMatchCards : MonoBehaviour, IPointerClickHandler
         if (isMatch || isClick || instance.isMatchRunning) return;
 
         Debug.Log("pointerClick");
+        SoundManager.Instance.PlayFlip();
+
         isClick = true;
        
         OnOpositeCard();
@@ -73,12 +75,16 @@ public class MemoryMatchCards : MonoBehaviour, IPointerClickHandler
                 MatchCards();
                 instance.tapCount = 0;
                 Debug.Log("Match");
+                SoundManager.Instance.PlayMatch();
+
             }
             else
             {
                 Invoke(nameof(ResetData), 1f);
                 Debug.Log("NotMatch");
-                
+                SoundManager.Instance.PlayMismatch();
+
+
             }
             Invoke(nameof(MatchRunningBoolFalse), 1.5f);
         }

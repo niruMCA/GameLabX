@@ -20,8 +20,6 @@ public class MemoryMatchManager : MonoBehaviour
     [HideInInspector] public MemoryMatchCards selectedCard;
     private int matchCount;
 
-    [Header("AudioClip")]
-    [SerializeField] AudioClip winSound;
     private void Awake()
     {
         if (instance == null)
@@ -95,6 +93,8 @@ public class MemoryMatchManager : MonoBehaviour
         if (matchCount == 4)
         {
             GameOver();
+            SoundManager.Instance.PlayGameOver();
+
         }
     }
     void GameOver()

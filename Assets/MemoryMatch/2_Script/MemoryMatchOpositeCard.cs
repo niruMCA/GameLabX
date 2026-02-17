@@ -24,7 +24,7 @@ public class MemoryMatchOpositeCard : MonoBehaviour
     {
         Image img = sticker.GetComponent<Image>();
         img.sprite = sp2;
-        //img.SetNativeSize();
+       //img.SetNativeSize();
     }
    
     public void ResetOpositeCards()
